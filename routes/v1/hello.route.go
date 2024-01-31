@@ -2,12 +2,16 @@
 package v1
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
+    "github.com/gin-gonic/gin"
+    "net/http"
 )
 
-var response = gin.H{"message": "Hello world", "status": http.StatusOK}
+var status = http.StatusOK
+var response = gin.H{"response": "Hello world", "status": status}
 
+// HelloHandler
+// ROUTE: /v1/hello
+// Jar health check
 func HelloHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, response)
+    c.JSON(status, response)
 }
